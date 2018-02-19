@@ -1,0 +1,40 @@
+<! DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar bg-dark" id="sidebar">
+            <div class="sidebar-header text-light">
+                <h3>Bar Locations</h3>
+            </div>
+        </div>
+
+        <div id="content">
+            <nav class="navbar navbar-light bg-dark">
+                <div class="container-fluid">
+                        <button class="navbar-toggler custom-toggler" type="button" id="sidebarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                </div>
+            </nav>
+            <div class="map" id="map">
+
+            </div>
+        </div>
+
+    </div>
+     <!-- AIzaSyC_ZxyCq-_xiwC9HUfi1IK8_AqSlzkB8lM -->
+    
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ZxyCq-_xiwC9HUfi1IK8_AqSlzkB8lM&callback=initMap"></script>
+     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+     <script src="main.js"></script>
+</body>
+</html>

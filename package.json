@@ -1,0 +1,28 @@
+{
+  "name": "neighborhood-map",
+  "version": "1.0.0",
+  "description": "udacity neighborhood map #5 for FEND.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yinay/Neighborhood-Map.git"
+  },
+  "keywords": [
+    "neighbood",
+    "map",
+    "udacity"
+  ],
+  "author": "yinaiyun@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yinay/Neighborhood-Map/issues"
+  },
+  "homepage": "https://github.com/yinay/Neighborhood-Map#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1"
+  }
+}
