@@ -15,9 +15,11 @@
                 <h3>西安旅游热点</h3>
             </div>
             <dib class="sidebar-body">
+                <div>
                     <input id="search" placeholder="热点搜索" data-bind="textInput: userInput, event: {keyup: filterPlaces}">
+                </div>
                 <!-- Sidebar Links -->
-                <ul class="folders" data-bind="foreach: placeList">
+                <ul class="places" data-bind="foreach: showPlaceList">
                         <li data-bind="text: name, 
                                        click: $root.onSelect"></li>
                     </ul>

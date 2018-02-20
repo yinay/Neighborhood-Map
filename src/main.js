@@ -106,16 +106,26 @@ function InitMark(){
         });
         // search input
         self.userInput = ko.observable('');
+        self.showPlaceList = ko.observableArray([]);
+        self.showPlaceList.push(...self.placeList());
+
 
         self.filterPlaces = function() {
            var seachText = self.userInput().trim();
-            
+           self.showPlaceList.removeAll(); 
            self.placeList().forEach(function(place){
-                place.marker.setVisible(place.name().indexOf(seachText) !== -1);
-                place.marker.setAnimation(google.maps.Animation.BOUNCE);
-                setTimeout(function () {
-                    place.marker.setAnimation(null);
-                }, 1000);
+                place.marker.setVisible(false);
+               if( place.name().indexOf(seachText) !== -1){
+                    place.marker.setVisible(true);
+                    self.showPlaceList.push(place);
+                    place.marker.setAnimation(google.maps.Animation.BOUNCE);
+                    setTimeout(function () {
+                        place.marker.setAnimation(null);
+                    }, 1000);
+               }
+               
+                // place.marker.setVisible(place.name().indexOf(seachText) !== -1);
+               
            });
       
         };
