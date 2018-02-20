@@ -70,7 +70,6 @@ function placeInfo(place, infowindow, target){
         url: url,
         dataType: "json",
         success: function(data) {
-            console.log('data', data);
             var result = data.response.venue;
             var photoPrefix, photoSuffix ;
             var bestPhoto = result.hasOwnProperty('bestPhoto') ? result.bestPhoto : '';
