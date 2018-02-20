@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Neightborhood-Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
@@ -20,9 +20,8 @@
                 </div>
                 <!-- Sidebar Links -->
                 <ul class="places" data-bind="foreach: showPlaceList">
-                        <li data-bind="text: name, 
-                                       click: $root.onSelect"></li>
-                    </ul>
+                        <li data-bind="text: name, click: $root.onSelect"></li>
+                </ul>
             </dib>
         </div>
 
@@ -40,13 +39,10 @@
         </div>
 
     </div>
-     <!-- AIzaSyC_ZxyCq-_xiwC9HUfi1IK8_AqSlzkB8lM -->
-    
      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ZxyCq-_xiwC9HUfi1IK8_AqSlzkB8lM&callback=initMap"></script>
      <script src="../node_modules/jquery/dist/jquery.min.js"></script>
      <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
      <script src="../node_modules/knockout/build/output/knockout-latest.js"></script>
      <script src="main.js"></script>
-     
 </body>
 </html>
