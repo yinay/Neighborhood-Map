@@ -6,13 +6,7 @@ function initMap() {
         zoom: 12,
         disableDefaultUI: true
     });
-    locations.forEach(function(location){
-        new google.maps.Marker({
-            position: new google.maps.LatLng(location.lat, location.lng),
-            map: map,
-            animation: google.maps.Animation.DROP
-        });
-    });
+    InitMark();
 };
 
 $(document).ready(function () {
@@ -58,9 +52,20 @@ var Place = function(place){
     this.name = ko.observable(place.name);
     this.lat = ko.observable(place.lat);
     this.lng = ko.observable(place.lng);
+    this.marker = ko.observable();
 }
 
-!function(){
+//WGPT20IAITWVBDG2DONI2WGWPLNUC3RXKVZYCH1QR1VWAA2C
+//KTEQNP35BXFODIXAB4GY31MA5BWHOPAXB4IXR5WKX505DCMU
+
+
+function placeInfo(place){
+    const name = place.name();
+    var contentInfo = `<div>${name}</div>`;
+    return contentInfo;
+}
+
+function InitMark(){
     var LocationsViewMode = function() {
         var self = this;
         self.placeList = ko.observableArray([]);
@@ -69,18 +74,52 @@ var Place = function(place){
             self.placeList.push(new Place(p));
         });
 
-        self.onSelect = function(address) {
-            console.log('Your select:', address);
+         // Initialize the infowindow
+        var infowindow = new google.maps.InfoWindow({
+            maxWidth: 200
+        });
+
+        
+
+        self.onSelect = function(place) {
+            console.log('Your select:', place.name(), place.marker);
+            google.maps.event.trigger(place.marker, 'click');
         };
 
-        // self.placeList().forEach(function(place){
-        //     new google.maps.Marker({
-        //         position: new google.maps.LatLng(place.lat(), place.lng()),
-        //         map: map,
-        //         animation: google.maps.Animation.DROP
-        //     });
-        // });
+        self.placeList().forEach(function(place){
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(place.lat(), place.lng()),
+                map: map,
+                animation: google.maps.Animation.DROP
+            });
+            place.marker = marker;
+            // add  click listener
+            marker.addListener('click', function() {
+                infowindow.setContent(placeInfo(place))
+                infowindow.open(map, this);
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+                map.setCenter(marker.getPosition());
+                setTimeout(function () {
+                    marker.setAnimation(null);
+                }, 1000);
+            });
+        });
+        // search input
+        self.userInput = ko.observable('');
+
+        self.filterPlaces = function() {
+           var seachText = self.userInput().trim();
+            
+           self.placeList().forEach(function(place){
+                place.marker.setVisible(place.name().indexOf(seachText) !== -1);
+                place.marker.setAnimation(google.maps.Animation.BOUNCE);
+                setTimeout(function () {
+                    place.marker.setAnimation(null);
+                }, 1000);
+           });
+      
+        };
     };
 
     ko.applyBindings(new LocationsViewMode());
-} ();
+};

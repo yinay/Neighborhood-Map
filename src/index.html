@@ -12,10 +12,10 @@
     <div class="wrapper">
         <div class="sidebar bg-dark" id="sidebar">
             <div class="sidebar-header text-light">
-                <h3>Bar Locations</h3>
+                <h3>西安旅游热点</h3>
             </div>
             <dib class="sidebar-body">
-                <input>
+                    <input id="search" placeholder="热点搜索" data-bind="textInput: userInput, event: {keyup: filterPlaces}">
                 <!-- Sidebar Links -->
                 <ul class="folders" data-bind="foreach: placeList">
                         <li data-bind="text: name, 
