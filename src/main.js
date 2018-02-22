@@ -10,12 +10,6 @@ function initMap() {
     InitMark();
 };
 
-$(document).ready(function () {
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-    });
-});
-
 var locations = [
     {
         name: "大唐芙蓉园",
@@ -99,6 +93,17 @@ function placeInfo(place, infowindow, target){
 function InitMark(){
     var LocationsViewMode = function() {
         var self = this;
+
+        // on toggler
+
+        self.togglerAcitve = ko.observable(false);
+
+        // Toggler Btn handler
+        self.onTogglerBtn = function() {
+            self.togglerAcitve(!self.togglerAcitve());
+
+        };
+
         self.placeList = ko.observableArray([]);
 
         locations.forEach(function(p){

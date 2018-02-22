@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="sidebar bg-dark" id="sidebar">
+        <div class="sidebar bg-dark" id="sidebar" data-bind="css: { 'active': togglerAcitve }">
             <div class="sidebar-header text-light">
                 <h3>西安旅游热点</h3>
             </div>
@@ -28,7 +28,7 @@
         <div id="content">
             <nav class="navbar navbar-light bg-dark">
                 <div class="container-fluid">
-                        <button class="navbar-toggler custom-toggler" type="button" id="sidebarCollapse">
+                        <button class="navbar-toggler custom-toggler" type="button" id="sidebarCollapse" data-bind="click: onTogglerBtn">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                 </div>
