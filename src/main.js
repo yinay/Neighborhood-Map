@@ -161,3 +161,8 @@ function InitMark(){
 
     ko.applyBindings(new LocationsViewMode());
 };
+
+
+function mapErrorHandler() {
+    document.getElementById('map').innerHTML = "<h3>Google地图加载失败，请确定你在长城内外？</h3>";
+}
